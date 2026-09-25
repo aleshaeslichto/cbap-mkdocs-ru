@@ -1,4 +1,4 @@
-<h1>Elasticsearch. Установка в базовой конфигурации для Windows</h1><div class="md-body" data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="comindware" dir="ltr" kb-id="4617" kb-tags="elasticsearch,установка,windows,подключение" kb-title="Elasticsearch. Установка в базовой конфигурации для Windows">
+<h1>Elasticsearch. Установка в базовой конфигурации для Windows</h1><div class="md-body" data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="comindware" dir="ltr" kb-id="5549" kb-tags="elasticsearch,установка,windows,подключение" kb-title="Elasticsearch. Установка в базовой конфигурации для Windows">
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
@@ -11,42 +11,54 @@
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_deploy_windows_intro">
 <span class="md-ellipsis">
-      Введение
+      
+        Введение
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_deploy_windows_requirements">
 <span class="md-ellipsis">
-      Требования к компьютеру
+      
+        Требования к компьютеру
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_deploy_windows_installation">
 <span class="md-ellipsis">
-      Установка Elasticsearch
+      
+        Установка Elasticsearch
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_deploy_windows_connection">
 <span class="md-ellipsis">
-      Подключение к Elasticsearch при развертывании экземпляра ПО
+      
+        Подключение к Elasticsearch при развертывании экземпляра ПО
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_deploy_windows_config_example">
 <span class="md-ellipsis">
-      Пример типового файла конфигурации Elasticsearch
+      
+        Пример типового файла конфигурации Elasticsearch
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#связанные-статьи">
 <span class="md-ellipsis">
-      Связанные статьи
+      
+        Связанные статьи
+      
     </span>
 </a>
 </li>
@@ -121,7 +133,7 @@
 </li>
 <li>
 <p>Убедитесь, что служба Elasticsearch успешно зарегистрирована и работает с помощью приложения «Службы» (<code>services.msc</code>):</p>
-<p><figure class="screenshot_with_caption" markdown=""><img alt="Сведения о службе Elasticsearch в приложении «Службы»" src="https://kb.comindware.ru/assets/Picture5.png"/><figcaption class="caption">Сведения о службе Elasticsearch в приложении «Службы»</figcaption></figure></p>
+<figure class="screenshot_with_caption" markdown=""><img alt="Сведения о службе Elasticsearch в приложении «Службы»" src="https://kb.comindware.ru/assets/Picture5.png"/><figcaption class="caption">Сведения о службе Elasticsearch в приложении «Службы»</figcaption></figure>
 </li>
 <li>
 <p>Если служба Elasticsearch не запустилась:</p>
@@ -158,7 +170,7 @@
 <li>адрес сервера <code>http://testhost:9201</code>;</li>
 <li>путь к файлу конфигурации: <code>C:\\Program Files\\Elastic\\Elasticsearch\\&lt;8.XX.X&gt;\\config\\elasticsearch.yml</code></li>
 </ul>
-<div class="highlight"><code><pre><span></span><code><span class="c1"># Начало файла конфигурации</span></code> <br/><code><span class="c1">#Разрешить свопинг памяти</span></code> <br/><code>bootstrap.memory_lock:<span class="w"> </span><span class="nb">false</span></code> <br/><code></code> <br/><code><span class="c1"># Название кластера</span></code> <br/><code>cluster.name:<span class="w"> </span>cmw</code> <br/><code></code> <br/><code><span class="c1"># Максимальное возможное количество шардов в кластере</span></code> <br/><code><span class="c1"># Система создает отдельный индекс для каждого объекта мониторинга, поэтому</span></code> <br/><code><span class="c1"># рекомендуется увеличить количество шардов до 3000</span></code> <br/><code>cluster.max_shards_per_node:<span class="w"> </span><span class="m">3000</span></code> <br/><code></code> <br/><code><span class="c1"># Стандартный номер порта 9200 изменен по соображениям безопасности</span></code> <br/><code>http.port:<span class="w"> </span><span class="m">9201</span></code> <br/><code></code> <br/><code><span class="c1"># Сетевые параметры</span></code> <br/><code><span class="c1"># Если доступ по сети не требуется,</span></code> <br/><code><span class="c1"># то уберите строки #network.host и discovery.seed_hosts</span></code> <br/><code><span class="c1"># Замените имя компьютера `testhost` на реальное имя</span></code> <br/><code>network.host:<span class="w"> </span>testhost</code> <br/><code>discovery.seed_hosts:</code> <br/><code><span class="w">  </span>-<span class="w"> </span>testhost</code> <br/><code></code> <br/><code><span class="c1"># Простейшая конфигурация с одним узлом</span></code> <br/><code>discovery.type:<span class="w"> </span>single-node</code> <br/><code></code> <br/><code><span class="c1"># Название узла</span></code> <br/><code>node.name:<span class="w"> </span>cmw</code> <br/><code></code> <br/><code><span class="c1"># Путь к папке с данными</span></code> <br/><code>path.data:<span class="w"> </span>d:<span class="se">\\P</span>rogramData<span class="se">\\E</span>lasticsearch<span class="se">\\e</span>lasticsearch-&lt;<span class="m">8</span>.XX.X&gt;<span class="se">\\d</span>ata</code> <br/><code></code> <br/><code><span class="c1"># Путь к папке с журналами</span></code> <br/><code>path.logs:<span class="w"> </span>d:<span class="se">\\P</span>rogramData<span class="se">\\E</span>lasticsearch<span class="se">\\e</span>lasticsearch-&lt;<span class="m">8</span>.XX.X&gt;<span class="se">\\l</span>ogs</code> <br/><code></code> <br/><code><span class="c1"># Путь к папке с резервными копиями</span></code> <br/><code><span class="c1"># Путь должен указывать на существующий диск</span></code> <br/><code><span class="c1"># Резервные копии должны храниться на отдельном диске отдельно от основных данных</span></code> <br/><code><span class="c1"># Включите в конфигурацию директиву path.repo, если требуется создавать резервные копии</span></code> <br/><code><span class="c1"># path.repo: d:elastic_backup</span></code> <br/><code></code> <br/><code><span class="c1"># Обычная лицензия</span></code> <br/><code>xpack.license.self_generated.type:<span class="w"> </span>basic</code> <br/><code></code> <br/><code><span class="c1"># Аутентификация включена</span></code> <br/><code>xpack.security.enabled:<span class="w"> </span><span class="nb">true</span></code> <br/><code></code> <br/><code><span class="c1"># Запись данных в индексы включена</span></code> <br/><code>indices.id_field_data.enabled:<span class="w"> </span><span class="nb">true</span></code> <br/><code></code> <br/><code><span class="c1"># Геолокация отключена</span></code> <br/><code>ingest.geoip.downloader.enabled:<span class="w"> </span><span class="nb">false</span></code> <br/></pre></code></div>
+<div class="highlight"><code><pre><span></span><code><span class="c1"># Начало файла конфигурации</span></code> <br/><code><span class="c1">#Разрешить свопинг памяти</span></code> <br/><code>bootstrap.memory_lock:<span class="w"> </span><span class="nb">false</span></code> <br/><code></code> <br/><code><span class="c1"># Название кластера</span></code> <br/><code>cluster.name:<span class="w"> </span>cmw</code> <br/><code></code> <br/><code><span class="c1"># Максимальное возможное количество шардов в кластере</span></code> <br/><code><span class="c1"># Система создает отдельный индекс для каждого объекта мониторинга, поэтому</span></code> <br/><code><span class="c1"># рекомендуется увеличить количество шардов до 3000 (на основе практического опыта)</span></code> <br/><code>cluster.max_shards_per_node:<span class="w"> </span><span class="m">3000</span></code> <br/><code></code> <br/><code><span class="c1"># Стандартный номер порта 9200 изменен по соображениям безопасности</span></code> <br/><code>http.port:<span class="w"> </span><span class="m">9201</span></code> <br/><code></code> <br/><code><span class="c1"># Сетевые параметры</span></code> <br/><code><span class="c1"># Если доступ по сети не требуется,</span></code> <br/><code><span class="c1"># то уберите строки #network.host и discovery.seed_hosts</span></code> <br/><code><span class="c1"># Замените имя компьютера `testhost` на реальное имя</span></code> <br/><code>network.host:<span class="w"> </span>testhost</code> <br/><code>discovery.seed_hosts:</code> <br/><code><span class="w">  </span>-<span class="w"> </span>testhost</code> <br/><code></code> <br/><code><span class="c1"># Простейшая конфигурация с одним узлом</span></code> <br/><code>discovery.type:<span class="w"> </span>single-node</code> <br/><code></code> <br/><code><span class="c1"># Название узла</span></code> <br/><code>node.name:<span class="w"> </span>cmw</code> <br/><code></code> <br/><code><span class="c1"># Путь к папке с данными</span></code> <br/><code>path.data:<span class="w"> </span>d:<span class="se">\\P</span>rogramData<span class="se">\\E</span>lasticsearch<span class="se">\\e</span>lasticsearch-&lt;<span class="m">8</span>.XX.X&gt;<span class="se">\\d</span>ata</code> <br/><code></code> <br/><code><span class="c1"># Путь к папке с журналами</span></code> <br/><code>path.logs:<span class="w"> </span>d:<span class="se">\\P</span>rogramData<span class="se">\\E</span>lasticsearch<span class="se">\\e</span>lasticsearch-&lt;<span class="m">8</span>.XX.X&gt;<span class="se">\\l</span>ogs</code> <br/><code></code> <br/><code><span class="c1"># Путь к папке с резервными копиями</span></code> <br/><code><span class="c1"># Путь должен указывать на существующий диск</span></code> <br/><code><span class="c1"># Резервные копии должны храниться на отдельном диске отдельно от основных данных</span></code> <br/><code><span class="c1"># Включите в конфигурацию директиву path.repo, если требуется создавать резервные копии</span></code> <br/><code><span class="c1"># path.repo: d:elastic_backup</span></code> <br/><code></code> <br/><code><span class="c1"># Обычная лицензия</span></code> <br/><code>xpack.license.self_generated.type:<span class="w"> </span>basic</code> <br/><code></code> <br/><code><span class="c1"># Аутентификация включена</span></code> <br/><code>xpack.security.enabled:<span class="w"> </span><span class="nb">true</span></code> <br/><code></code> <br/><code><span class="c1"># Запись данных в индексы включена</span></code> <br/><code>indices.id_field_data.enabled:<span class="w"> </span><span class="nb">true</span></code> <br/><code></code> <br/><code><span class="c1"># Геолокация отключена</span></code> <br/><code>ingest.geoip.downloader.enabled:<span class="w"> </span><span class="nb">false</span></code> <br/></pre></code></div>
 <div class="relatedTopics">
 <h2 id="связанные-статьи">Связанные статьи</h2>
 <ul>
@@ -177,5 +189,5 @@
 </main>
 </div>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
+document$.subscribe(()=>{ lightbox.reload(); });
 </script></div>

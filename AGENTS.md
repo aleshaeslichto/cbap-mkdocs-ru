@@ -397,3 +397,19 @@ Structure changes into **separate commits per layer** (up to five) to minimise n
 ## SELF-EVOLUTION — Documenting Discoveries
 
 After completing a non-trivial task, review what was learned and capture it. See the [self-evolution skill](.agents/skills/self-evolution/SKILL.md) for the full methodology.
+
+## DESTRUCTIVE OPERATIONS — Confirmation Required
+
+Before running any of the following, **ask the operator for explicit confirmation**:
+
+- `git clean -fd` or `git clean -fdx` — removes untracked files (some may be irrecoverable)
+- `git reset --hard HEAD` — discards all uncommitted changes
+- `git checkout -- .` on a large tree (when it affects many files)
+- `git branch -D` — force-deletes a branch
+- `git stash drop` or `git stash clear` — discards stashes
+- `git push --force` or `git push --force-with-lease` — overwrites remote history
+- `git merge --abort` or `git rebase --abort` — aborts in-progress operations
+
+**Never run multiple git commands that modify state in parallel.** Use sequential tool calls. Read-only commands (`git log`, `git diff`, `git status`, `git branch`) are safe in parallel.
+
+**Never use `git clean -fdx`** — it removes gitignored files (`.venv/`, build artifacts, local configs) that are not in git and cannot be restored. Use `git clean -fd` (without `-x`) when needed.

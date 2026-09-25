@@ -537,11 +537,7 @@ _![Пример файла <instanceName>.yml с директивой  isLinuxSS
 
 2. Установите модуль _NGINX-SPNEGO_:
 
-    - **Astra Linux (версии 1.8.3 и выше)**
-
-        Установите модуль `ngx_http_auth_spnego_module.so` из пакета `nginx-spnego-module_1.26.3-1_amd64.deb`, который поставляется в составе инсталлятора **{{ productName }}** для Astra Linux 1.8.3 и выше.
-
-    - **Astra Linux (версии ниже 1.8.3), Debian, DEB-дистрибутивы**
+    - **Astra Linux, Debian, DEB-дистрибутивы**
 
         ``` sh
         apt-get update
@@ -594,6 +590,10 @@ _![Пример файла <instanceName>.yml с директивой  isLinuxSS
         make
         make install
         ```
+
+    Здесь:
+
+      - `<nginx.version>` — версия NGINX, которая используется в текущем окружении (например, 1.30.4).
 
 3. Добавьте модуль _SPNEGO_ к рабочей конфигурации _NGINX_:
 

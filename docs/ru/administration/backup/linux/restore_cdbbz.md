@@ -300,7 +300,7 @@ hide: tags
 3. Назначьте папке репозитория и её содержимому полные права доступа:
 
     ``` sh
-    chmod -R 777 /var/backups/opensearch/
+    chmod -R 700 /var/backups/opensearch/
     ```
 
 4. Назначьте владельца `opensearch` папке репозитория и её содержимому:

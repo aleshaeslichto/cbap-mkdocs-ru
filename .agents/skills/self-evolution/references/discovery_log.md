@@ -4,6 +4,18 @@ Session discoveries that haven't yet been migrated to durable skills or rules.
 
 **Order: newest first** — agents read from the top; put today's `## YYYY-MM-DD` block directly below this intro (one heading per day). Review before starting related work. Move stable items to skills/rules and prune absorbed entries.
 
+## 2026-08-03
+
+- **Parallel git state-changing commands corrupt the index.** Running multiple `git checkout`, `git pull`, `git reset`, or `git clean` in parallel (simultaneous tool calls) causes `index.lock` conflicts, partial checkouts, and corrupted staging area. **Never launch parallel git commands that modify state.** Sequential only. Read-only commands (`git log`, `git diff`, `git status`) are safe in parallel.
+- **`git clean -fdx` is destructive and irreversible.** It removes ALL untracked files, including `.venv/`, `.venv-wsl/`, `.vscode/settings.json`, generated PDFs, build artifacts, and cached data. These are not in git and cannot be restored. **Never run `git clean -fdx` without explicit operator approval.** Prefer `git clean -fd` (without `-x`) — it respects `.gitignore` and leaves ignored files like `.venv/` untouched.
+- **`git checkout -- .` on a large dirty tree is safe** — it only overwrites tracked files from HEAD. Untracked files are untouched. Use this for reverting accidental v6 contamination in the working tree.
+- **`git reset HEAD` unstages everything without losing data.** Use before `git checkout -- .` when the staging area is contaminated.
+- **Before diagnosing branch sync state, always `git fetch <remote>` first.** `git remote show origin` shows stale cached data — it may report "local out of date" when the local branch is actually already ahead or equal after previous pushes. Fetch freshens the remote refs.
+- **Red flag: v6 RAG corpus (`phpkb_content_rag/896-platform_v6/`) appearing on `platform_v5`.** This signals index contamination from a previous merge/pull on the v6 branch that was never committed. Quick check: `git ls-files --error-unmatch phpkb_content_rag/896-platform_v6/` — if it exits 0, the index is contaminated.
+- **When switching branches leaves dirty tracked files, check if they came from the *previous* branch.** The diff often matches the other branch's contents. Compare: `git diff HEAD <other-branch> -- <file>` to confirm.
+- **Diagnostic first, action second.** When things get messy: (1) `git fetch`, (2) `git status` (look for staged, unstaged, untracked, MERGE_HEAD), (3) `git stash list` (check for forgotten stashes), (4) `git diff --cached HEAD` to see what's staged, (5) present findings to operator. No destructive moves without read-only triage.
+- **Before any `git reset --hard`, check for `MERGE_HEAD`.** An uncommitted merge (`MERGE_HEAD` exists) means `reset --hard` aborts the merge AND loses all conflict-resolution work. Use `git merge --abort` instead when you want to cancel a merge, or complete it first.
+
 ## 2026-06-22
 
 - **Standalone PDF generation from external documents.** Created `generate-pdf-from-source` skill for converting DOCX/text into Comindware-styled PDFs outside the docs/ru tree. Target folder structure: `build.ps1` + `mkdocs.yml` + `docs/` (markdown + img) + `.site/` (build output) + output PDF. YAML uses `INHERIT: !ENV [MKDOCS_COMMON, <relative_fallback>]` with env vars set by build script. `docs_dir` and `site_dir` must be siblings (not parent-child). `output_path` in `with-pdf` is relative to `site_dir`; use `../` to place PDF in folder root. `exclude_docs: | *.md !<article>.md` builds only the target article.

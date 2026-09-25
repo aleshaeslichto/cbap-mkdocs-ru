@@ -73,15 +73,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link mkdocs_imported_link" href="#http_receive_example_route_response">
-<span class="md-ellipsis">
-      
-        Настройка атрибутов ответа
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#http_receive_example_route_integration">
 <span class="md-ellipsis">
       
@@ -94,6 +85,15 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link mkdocs_imported_link" href="#настройка-nginx">
+<span class="md-ellipsis">
+      
+        Настройка NGINX
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#http_receive_example_scenario">
 <span class="md-ellipsis">
       
@@ -101,19 +101,6 @@
       
     </span>
 </a>
-<nav aria-label="Настройка сценария" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link mkdocs_imported_link" href="#http_receive_example_scenario_response">
-<span class="md-ellipsis">
-      
-        Настройка ответа в сценарии
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#http_receive_example_testing">
@@ -225,22 +212,14 @@
 <li><strong>Отключить</strong> — не регистрировать в журнале события получения запросов.</li>
 </ul>
 </li>
-<li>
-<p><strong>Базовый путь получения HTTP-запросов</strong> — добавьте <strong>путь URI</strong>, например <code>uploadData</code>. При необходимости введите дополнительный <strong>путь URI</strong> на вкладке «<strong>Интеграция</strong>» в свойствах <a class="mkdocs_imported_link" href="#http_receive_example_route">пути передачи данных</a>. Укажите результирующий путь на внешнем сервере в качестве получателя запроса, например:</p>
-<div class="highlight"><code><pre><span></span><code>https://&lt;hostname&gt;/api/public/adapter/uploadData</code> <br/></pre></code></div>
-</li>
-<li>
-<p><strong>Формат данных</strong> — выберите представление данных:</p>
-<ul>
-<li><strong>JSON</strong> — используется в данном примере;</li>
+<li><strong>Базовый путь получения HTTP-запросов</strong> — добавьте <strong>путь URI</strong>, например <code>uploadData</code>. При необходимости введите дополнительный <strong>путь URI</strong> на вкладке «<strong>Интеграция</strong>» в свойствах <a class="mkdocs_imported_link" href="#http_receive_example_route">пути передачи данных</a>.</li>
+<li><strong>Имя пользователя</strong> - не используется в данном примере.</li>
+<li><strong>Пароль</strong> - не используется в данном примере.</li>
+<li><strong>Порт</strong> - порт, на котором будут ожидаться запросы. Для работы нужно внести изменения в конфигурацию nginx (ссылка на область статьи после путей передачи данных).</li>
+<li><strong>Формат данных</strong> — выберите представление данных:<ul>
+<li><strong>JSON</strong> — используется в данном примере;</li>
 <li><strong>XML</strong>;</li>
 <li><strong>Простой текст</strong>.</li>
-</ul>
-</li>
-<li><strong>Тип аутентификации</strong> — выберите способ проверки подлинности, используемый сервером:<ul>
-<li><strong>Отсутствует</strong>;</li>
-<li><strong>Базовая</strong>;</li>
-<li><strong>Аутентификация Windows</strong>.</li>
 </ul>
 </li>
 </ul>
@@ -328,56 +307,16 @@
 <figure class="screenshot_with_caption" markdown=""><img alt="Настройка атрибутов сообщения" src="/platform/v6.0/administration/connections_communication_routes/rest_odata_connections/img/json3.jpg"/><figcaption class="caption">Настройка атрибутов сообщения</figcaption></figure>
 </li>
 <li>
-<p>При необходимости настройте <strong>ответ</strong> — здесь можно составить структуру JSON, которая будет отправляться в ответе на запрос после его успешной обработки, и <strong>ответ с ошибкой</strong> — структуру JSON для ответа на запрос, при обработке которого произошла ошибка.</p>
+<p>При необходимости настройте <strong>ответ</strong> — здесь можно составить структуру JSON, которая будет отправляться в ответе на запрос после его успешной обработки, и ответ с ошибкой — структуру JSON для ответа на запрос, при обработке которого произошла ошибка.</p>
 </li>
 </ol>
-<h3 id="http_receive_example_route_response">Настройка атрибутов ответа</h3>
-<p>Переменная <code>IncomingMessage</code> — системное имя набора переменных, значения которых передаются в ответ внешнему серверу. Атрибуты, заданные в разделах «<strong>Ответ</strong>» и «<strong>Ответ с ошибкой</strong>», определяют модель данных ответа: системные имена и типы атрибутов в пути передачи данных должны совпадать с переменными, значения которых задаются в сценарии.</p>
-<p>Для настройки ответа:</p>
-<ol class="colored_numbers_list">
-<li>В разделе «<strong>Ответ</strong>» нажмите «<strong>Добавить</strong>» и создайте атрибуты, которые будут возвращаться внешнему серверу при успешной обработке запроса. Задайте <strong>системное имя</strong> и <strong>тип</strong> каждого атрибута.</li>
-<li>В разделе «<strong>Ответ с ошибкой</strong>» нажмите «<strong>Добавить</strong>» и создайте атрибуты, которые будут возвращаться при ошибке обработки.</li>
-</ol>
-<p>Например, для ответа вида:</p>
-<div class="highlight"><code><pre><span></span><code><span class="p">{</span></code> <br/><code><span class="w">    </span><span class="nt">"HasErrors"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span></code> <br/><code><span class="w">    </span><span class="nt">"ResponseDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Остатки получены"</span></code> <br/><code><span class="p">}</span></code> <br/></pre></code></div>
-<p>добавьте следующие атрибуты:</p>
-<table style="width: 100%;">
-<thead>
-<tr>
-<th>Раздел</th>
-<th>Системное имя</th>
-<th>Тип</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Ответ</strong></td>
-<td><em>HasErrors</em></td>
-<td><strong>Логический</strong></td>
-</tr>
-<tr>
-<td><strong>Ответ</strong></td>
-<td><em>ResponseDescription</em></td>
-<td><strong>Строка</strong></td>
-</tr>
-<tr>
-<td><strong>Ответ с ошибкой</strong></td>
-<td><em>HasErrors</em></td>
-<td><strong>Логический</strong></td>
-</tr>
-<tr>
-<td><strong>Ответ с ошибкой</strong></td>
-<td><em>ResponseDescription</em></td>
-<td><strong>Строка</strong></td>
-</tr>
-</tbody>
-</table>
-<p>Значения этим атрибутам присваиваются в сценарии с помощью действия «<strong>Изменить значения переменных</strong>» (см. <a class="mkdocs_imported_link" href="#http_receive_example_scenario_response">Настройка ответа в сценарии</a>).</p>
 <h3 id="http_receive_example_route_integration">Интеграция</h3>
 <ol class="colored_numbers_list">
 <li>
-<p>При необходимости укажите дополнительный суффикс в поле «<strong>Путь URI</strong>». Этот суффикс будет добавлен к URL-адресу в поле «<strong>Базовый путь получения HTTP-запросов</strong>» (совпадает с путём, настроенным в <a class="mkdocs_imported_link" href="#http_receive_example_connection">подключении</a>). Укажите результирующий адрес на внешнем сервере в качестве получателя запросов, например:</p>
-<div class="highlight"><code><pre><span></span><code>https://&lt;hostname&gt;/api/public/adapter/uploadData</code> <br/></pre></code></div>
+<p>Время на ответ со стороны платформы - время, которое платформа может потратить на ответ </p>
+</li>
+<li>
+<p>При необходимости укажите дополнительный суффикс в поле «<strong>Путь URI</strong>». Этот суффикс будет добавлен к URL-адресу</p>
 </li>
 <li>
 <p>Укажите <strong>атрибуты для десериализации данных</strong>. По умолчанию следует указать <code>$</code> в обоих столбцах, чтобы получить всю структуру JSON из запроса. Для поиска определенного атрибута используйте JSONPath.</p>
@@ -387,6 +326,13 @@
 <figure class="screenshot_with_caption" markdown=""><img alt="Настройка интеграции" src="/platform/v6.0/administration/connections_communication_routes/rest_odata_connections/img/json4.png"/><figcaption class="caption">Настройка интеграции</figcaption></figure>
 </li>
 </ol>
+<h2 id="настройка-nginx">Настройка NGINX</h2>
+<p>Добавить в файл /etc/nginx/sites-available/comindware\<instancename> новый location для нового пути передачи данных.</instancename></p>
+<div class="highlight"><code><pre><span></span><code><span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="w"> </span><span class="err">/&lt;URI</span><span class="w"> </span><span class="err">подключения&gt;/&lt;URI</span><span class="w"> </span><span class="err">пути</span><span class="w"> </span><span class="err">передачи</span><span class="w"> </span><span class="err">данных&gt;</span></code> <br/><code><span class="w">    </span><span class="p">{</span></code> <br/><code><span class="w">        </span><span class="err">proxy_pass</span><span class="w"> </span><span class="err">h</span><span class="kc">tt</span><span class="err">p</span><span class="p">:</span><span class="c1">//127.0.0.1:&lt;PORT подключения&gt;;</span></code> <br/><code><span class="w">    </span><span class="p">}</span></code> <br/></pre></code></div>
+<div class="notice notice-info">
+<p class="admonition-title">Примечание</p>
+<p>Для каждого пути передачи данных на получение запросов надо добавить свой отдельный location.</p>
+</div>
 <p><a class="mkdocs_imported_link" href="" id="scenario_configure"></a></p>
 <h2 class="pageBreakBefore" id="http_receive_example_scenario">Настройка сценария</h2>
 <ol class="colored_numbers_list">
@@ -458,76 +404,6 @@
 <figure class="screenshot_with_caption" markdown=""><img alt="Сценарий обработки заказа" src="/platform/v6.0/administration/connections_communication_routes/rest_odata_connections/img/json10.png"/><figcaption class="caption">Сценарий обработки заказа</figcaption></figure>
 </li>
 </ol>
-<h3 id="http_receive_example_scenario_response">Настройка ответа в сценарии</h3>
-<p>Чтобы отправить ответ внешнему серверу, задайте значения переменных из набора <code>IncomingMessage</code> с помощью действия «<strong>Изменить значения переменных</strong>». Системные имена переменных должны совпадать с системными именами атрибутов, настроенных в разделах «<strong>Ответ</strong>» и «<strong>Ответ с ошибкой</strong>» <a class="mkdocs_imported_link" href="#http_receive_example_route_response">пути передачи данных</a>.</p>
-<ol class="colored_numbers_list">
-<li>
-<p>Добавьте действие «<strong>Изменить значения переменных</strong>» <strong>до</strong> основного блока обработки (этот блок выполнится при ошибке и передаст данные в раздел «<strong>Ответ с ошибкой</strong>»):</p>
-<ul>
-<li><strong>Операция со значениями переменных:</strong> <em>Заменить</em></li>
-<li><strong>Набор переменных:</strong> <code>IncomingMessage</code></li>
-<li>В таблице нажмите «<strong>Создать</strong>» и добавьте переменные:</li>
-</ul>
-<table style="width: 100%;">
-<thead>
-<tr>
-<th>Имя переменной</th>
-<th>Значение</th>
-<th>Тип значения</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>HasErrors</em></td>
-<td><code>true</code></td>
-<td><strong>Формула</strong></td>
-</tr>
-<tr>
-<td><em>ResponseDescription</em></td>
-<td><code>"Ошибка обработки запроса"</code></td>
-<td><strong>Формула</strong></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Добавьте действие «<strong>Изменить значения переменных</strong>» <strong>после</strong> основного блока обработки (этот блок выполнится при успешной обработке и передаст данные в раздел «<strong>Ответ</strong>»):</p>
-<ul>
-<li><strong>Операция со значениями переменных:</strong> <em>Заменить</em></li>
-<li><strong>Набор переменных:</strong> <code>IncomingMessage</code></li>
-<li>В таблице нажмите «<strong>Создать</strong>» и добавьте переменные:</li>
-</ul>
-<table style="width: 100%;">
-<thead>
-<tr>
-<th>Имя переменной</th>
-<th>Значение</th>
-<th>Тип значения</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>HasErrors</em></td>
-<td><code>false</code></td>
-<td><strong>Формула</strong></td>
-</tr>
-<tr>
-<td><em>ResponseDescription</em></td>
-<td><code>"Остатки получены"</code></td>
-<td><strong>Формула</strong></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ol>
-<div class="notice notice-info">
-<p class="admonition-title">Примечание</p>
-<ul>
-<li>Набор переменных <code>IncomingMessage</code> — системное имя, которое связывает переменные сценария с моделью ответа, описанной в свойствах пути передачи данных.</li>
-<li>После выполнения сценария переменная <code>IncomingMessage</code> передаётся в ответ пути передачи данных: атрибуты в переменной и в модели данных ответа должны совпадать по системным именам и типам.</li>
-<li>Если в сценарии не заданы значения переменных <code>IncomingMessage</code>, ответ будет отправлен с пустыми значениями.</li>
-</ul>
-</div>
 <p><a class="mkdocs_imported_link" href="" id="testing"></a></p>
 <h2 class="pageBreakBefore" id="http_receive_example_testing">Тестирование</h2>
 <ol class="colored_numbers_list">
@@ -547,10 +423,6 @@
 <li>
 <p>Проверьте обработку запроса: должны быть созданы записи в шаблоне <em>«Заказы»</em>, соответствующие полученному запросу, как показано на иллюстрации:</p>
 <figure class="screenshot_with_caption" markdown=""><img alt="Полученные заказы" src="/platform/v6.0/administration/connections_communication_routes/rest_odata_connections/img/json9.jpg"/><figcaption class="caption">Полученные заказы</figcaption></figure>
-</li>
-<li>
-<p>Проверьте ответ сервера <strong>Comindware Platform</strong>: в теле ответа должен вернуться JSON, соответствующий настроенным атрибутам раздела «<strong>Ответ</strong>»:</p>
-<div class="highlight"><code><pre><span></span><code><span class="p">{</span></code> <br/><code><span class="w">    </span><span class="nt">"HasErrors"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span></code> <br/><code><span class="w">    </span><span class="nt">"ResponseDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Остатки получены"</span></code> <br/><code><span class="p">}</span></code> <br/></pre></code></div>
 </li>
 </ol>
 <div class="relatedTopics">

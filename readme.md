@@ -1882,6 +1882,12 @@ git switch platform_v6
 git pull origin platform_v6
 ```
 
+### Tips
+
+- **Discard unstaged changes:** `git restore <file>` for a single file, `git restore <dir>/` recursively for a whole directory.
+- **`git push -u origin HEAD`:** the `-u` (`--set-upstream`) flag links your local branch to the remote one. Subsequent `git push` / `git pull` work without arguments.
+- **Glob patterns in PowerShell:** wrap globs in quotes when using `git restore` or `git add` (`'for_kb_import_ru/**/*.html'`). `**` is recursive (any depth), `*` is current directory only.
+
 ### Push to team remote (if configured)
 
 ```bash

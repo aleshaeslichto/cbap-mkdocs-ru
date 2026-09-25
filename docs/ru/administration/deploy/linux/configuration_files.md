@@ -100,24 +100,22 @@ hide: tags
 ``` yaml
 ##### Настройка базовых параметров {{ productName }} #####
 # Имя экземпляра {{ productName }}.
-# Устаревшая директива: instanceName
 clusterName: <instanceName>
 # Имя узла экземпляра {{ productName }}.
 #nodeName: <instanceName>
 # Путь к экземпляру, по которому {{ productName }} находит свою конфигурацию.
 configPath: <configPath>
 # Адрес службы журналирования {{ openSearchVariants }}.
-# Устаревшая директива: elasticsearchUri
 journal.server: http://<searchHostIP>:<searchHostPort>
 # Индекс службы журналирования {{ openSearchVariants }}.
 # Допускается использовать только строчные буквы и цифры.
 # Если в имени индекса будут прописные буквы или спецсимволы (например, дефис),
-# служба журналирования автоматически преобразует их в строчные буквы и символы подчёркивания.
-# journal.name: <prefix><instanceName>
-# Имя пользователя службы журналирования
-# journal.username: xxxx
-# Пароль службы журналирования
-# journal.password: xxxx
+# служба журналирования автоматически преобразует их в строчные буквы и символы подчёркивания.
+#journal.name: <instanceName>
+# Имя пользователя для аутентификации службы журналирования {{ openSearchVariants }}.
+#journal.username:
+# Пароль для аутентификации службы журналирования {{ openSearchVariants }}.
+#journal.password:
 # Выключение службы журналирования.
 #journal.enabled: false
 # Выключение проверки валидации сертификатов
@@ -140,7 +138,6 @@ version: <versionNumber>
 # Конечные точки для подключения тонкого клиента.
 #db.asThinClientEndpoints: 127.0.0.1:10800
 # Путь к базе данных.
-# Устаревшая директива: databasePath
 db.workDir: /var/lib/comindware/<instanceName>/Database
 # Папка установки {{ apacheIgniteVariants }}.
 #db.homeDir:
@@ -155,27 +152,22 @@ db.workDir: /var/lib/comindware/<instanceName>/Database
 #db.baselineAutoActivationEnabledFlag: false
 # Включение автоматической настройки узлов {{ apacheIgniteVariants }}.
 # На всех узлах должно быть одинаковое значение.
-#db.baselineAutoAdjustEnabledFlag: false
+#db.baselineAutoAdjustEnabledFlag: true
 # Время ожидания фактического изменения настройки узлов {{ apacheIgniteVariants }}
 # с момента последнего изменения.
+# На всех узлах должно быть одинаковое значение.
 #db.baselineAutoAdjustTimeout: 3000
 # Согласованный глобальный уникальный идентификатор узла {{ apacheIgniteVariants }}.
-#db.consistentId: 
+#db.consistentId:
 # Используемый префикс кэшей в базе данных
-# Устаревшая директива: databaseName
+# На всех узлах должно быть одинаковое значение.
 db.name: <instanceName>
 # Вес узла (целочисленное значение) с точки зрения кластера {{ apacheIgniteVariants }}.
 # Суммарный вес всех узлов не должен превышать 100.
 # Значение по умолчанию: 100/кол-во узлов.
 #db.weight:
-# Префикс кэшей в базе данных, используемый при обновлении.
-#db.upgradeName:
-# Путь к онтологии {{ companyName }}
+# Путь к онтологии {{ productName }}
 #db.n3Dir:
-# Директива применяется во время апгрейда кэшей. Если флаг не установлен, старые кэши необходимо удалять вручную.
-#db.autoRemoveCachesOnUpgrade: false
-# Директива применяется во время запуска системы. Если флаг установлен, на существующие кэши будет применена новая конфигурация (если она отличается).
-#db.applyCachesConfigsOnStart: false
 # Количество резервных копий для каждого кэша. При db.systemCacheConfig.cacheMode = Replicated не оказывает влияния.
 #db.cacheConfig.backups: 2
 # Тип кэша. Доступные значения: Partitioned | Replicated
@@ -185,7 +177,7 @@ db.name: <instanceName>
 # Тип ребалансировки. Доступные значения: Sync | Async | None
 #db.cacheConfig.rebalanceMode: Async
 # Тип синхронизации данных кэша. Доступные значения: FullSync | FullAsync | PrimarySync
-db.cacheConfig.writeSynchronizationMode: FullSync
+#db.cacheConfig.writeSynchronizationMode: FullSync
 
 {% if pdfOutput %}
 ```
@@ -223,11 +215,11 @@ tempWorkingDir: /var/lib/comindware/<instanceName>/LocalTemp
 # Адрес и порт брокера сообщений {{ apacheKafkaVariants }}.
 mq.server: <kafkaBrokerIP>:<kafkaBrokerPort>
 # Идентификатор группы очереди сообщений.
-mq.group: <prefix>-<instanceName>
+mq.group: <instanceName>
 # Префикс имени очередей сообщений.
 mq.name: <instanceName>
 # Идентификатор узла очереди сообщений.
-mq.node: <instanceName>
+mq.node: <instanceName>_Exclusive
 # Выключение функции очереди сообщений.
 #mq.enabled: false
 # Протокол безопасности очереди сообщений.
@@ -247,14 +239,6 @@ mq.node: <instanceName>
 #mq.sasl.password:
 # Тип механизма SASL (None | Plain | ScramSha256 | ScramSha512).
 #mq.sasl.mechanism:
-
-##### Создание топиков #####
-# Коэффициент репликации для создаваемого топика.
-#mq.replicationFactor: 3
-# Количество партиций для создаваемого топика.
-#mq.numPartitions: 16
-# Таймаут для запроса метаданных (миллисекунды).
-#mq.metadataTimeoutMsec: 3000
 
 {% if pdfOutput %}
 ```
@@ -287,6 +271,19 @@ mq.node: <instanceName>
 # Выключение получателя сообщений.
 #mq.adapter.3.consumer.enabled: false
 
+##### Создание топиков #####
+# Коэффициент репликации для создаваемого топика.
+#mq.replicationFactor: 3
+# Количество партиций для создаваемого топика.
+#mq.numPartitions: 16
+# Таймаут для запроса метаданных (миллисекунды).
+#mq.metadataTimeout: 3000
+# Тип сжатия данных в топиках.
+#mq.compressionType: Lz4
+# Таймаут на обработку сообщения (должен быть больше таймаута сессии
+# указанного в параметрах брокера, (миллисекунды).
+#mq.maxPollInterval: 300000
+
 ##### Настройка OpenID-аутентификации #####
 # Имя OpenID-сервиса, использующегося для входа.
 #auth.openId.displayName:
@@ -309,7 +306,7 @@ mq.node: <instanceName>
 ##### Настройки аутентификации #####
 # Минимальная длина пароля пользователя
 #auth.minimalPasswordLength: 14
-# Время истечения сессии пользователя в формате дд.чч:мм:сс  
+# Время истечения сессии пользователя в формате дд.чч:мм:сс
 #auth.sessionExpirationTime: 00.12:00:00
 
 {% if pdfOutput %}
@@ -320,17 +317,16 @@ mq.node: <instanceName>
 ##### Настройка резервного копирования #####
 # Папка для резервного копирования по умолчанию.
 # Будет использоваться во вновь создаваемых конфигурациях резервного копирования.
-# Устаревшая директива: backup.config.default.repository.localDisk.path
-backup.defaultFolder: /var/backups/<instanceName>
+backup.defaultFolder: /var/backups/<instanceName>/Backup
 # Имя файла резервных копий по умолчанию.
 # Будет использоваться во вновь создаваемых конфигурациях резервного копирования.
-backup.defaultFileName: <instanceName>
+backup.defaultFileName: Backup
 # Выключение функции резервного копирования.
 #backup.enabled: false
 # Выключение сеансов резервного копирования.
-# Выключает выполнение резервного копирования, но не его настройку.
+# Выключает выполнение резервного копирования, но не создание сеансов резервного копирования.
 #backup.sessionsEnabled: false
-# Выключение запуска сеансов резервного копирования по расписанию.
+# Выключение создания сеансов резервного копирования по расписанию.
 #backup.schedulesEnabled: false
 # Максимальное количество сеансов резервного копирования.
 #backup.maxSessions: 5
@@ -344,7 +340,7 @@ backup.defaultFileName: <instanceName>
 # Тип хранилища (LocalDisk | S3).
 #backup.default.<backupName>.repository.type: LocalDisk
 # Путь к файлам резервных копий.
-#backup.default.<backupName>.repository.localDisk.path: /var/backups/<instanceName>
+#backup.default.<backupName>.repository.localDisk.path: /var/backups/<instanceName>/Backup
 # Имя корзины S3 для хранения файлов резервных копий.
 #backup.default.<backupName>.repository.s3.bucket:
 # Имя подключения к S3.
@@ -378,7 +374,7 @@ backup.defaultFileName: <instanceName>
 # Тип хранилища (LocalDisk | S3).
 #backup.default.<backupName>.extraRepository.type: LocalDisk
 # Путь к файлам резервных копий.
-#backup.default.<backupName>.extraRepository.localDisk.path: /var/backups/<instanceName>ExtraRepository
+#backup.default.<backupName>.extraRepository.localDisk.path: /var/backups/<instanceName>/BackupExtraRepository
 # Имя корзины S3 для хранения файлов резервных копий.
 #backup.default.<backupName>.extraRepository.s3.bucket:
 # Имя подключения к S3.
@@ -388,7 +384,7 @@ backup.defaultFileName: <instanceName>
 # Тип хранилища (LocalDisk | S3).
 #backup.journalRepository.type: LocalDisk
 # Путь к файлам резервных копий
-#backup.journalRepository.localDisk.path: /var/backups/<instanceName>
+#backup.journalRepository.localDisk.path: /var/backups/<instanceName>/Backup
 # Имя корзины S3 для хранения файлов резервных копий.
 #backup.journalRepository.s3.bucket:
 # Имя подключения, настроенного в конфигурации службы журналирования.
@@ -405,6 +401,7 @@ backup.defaultFileName: <instanceName>
 #s3.<s3ConnectionName>.accessKey:
 # Информация учётной записи. Секретный ключ подключения к хранилищу S3.
 #s3.<s3ConnectionName>.secretKey:
+# Использовать адресацию в стиле системных путей.
 # Установите значение true, если сервер принимает только запросы path-style вида:
 # https://<s3hostname>/bucket-name/key-name
 #s3.<s3ConnectionName>.pathStyleAccess: true
@@ -425,22 +422,27 @@ backup.defaultFileName: <instanceName>
 ##### Настройка сенсоров мониторинга #####
 # Выключение функции сенсоров мониторинга.
 #sensors.enabled: false
+
 ##### Настройка синхронизации аккаунтов с LDAP-сервисом #####
 # Выключение функции синхронизации.
 #sync.ldap.enabled: true
-# Выключение запуска сеансов синхронизации.
-# Выключает выполнение сеансов, но не их настройку.
+# Выключение запуска сеансов LDAP синхронизации.
+# Выключает выполнение сеансов, но не их создание.
 #sync.ldap.sessionsEnabled: true
-# Выключение запуска сеансов синхронизации по расписанию.
+# Выключение создания сеансов LDAP синхронизации по расписанию
 #sync.ldap.schedulesEnabled: true
-
-##### Настройка синхронизации данных с OData-сервисом #####
-# Выключение интеграции по OData.
+# Максимальное время (в секундах) на выполнение запроса аутентификации
+#sync.ldap.connectionTimeout: 300
+# Максимальное время (в секундах) на выполнение поискового запроса
+#sync.ldap.searchTimeout: 600
+# Выключение проверки валидации сертификатов
+#sync.ldap.certificateSkipValidation: true
+# Выключение интеграции OData
 #sync.oData.enabled: false
 # Выключение запуска сеансов синхронизации данных по OData.
-# Выключает выполнение сеансов, но не их настройку.
+# Выключает выполнение сеансов, но не их создание.
 #sync.oData.sessionsEnabled: false
-# Выключение запуска сеансов синхронизации данных по OData по расписанию.
+# Выключение создания сеансов синхронизации данных по OData по расписанию.
 #sync.oData.schedulesEnabled: false
 # Интервал экспорта данных по OData (минуты).
 #sync.oData.exportTimeInterval: 60
@@ -452,8 +454,10 @@ backup.defaultFileName: <instanceName>
 ##### Настройки электронной почты #####
 # Выключение функции проверки наличия и получения новых писем.
 #email.listenerEnabled: false
-# Выключение функции отправки эл. почты
+# Выключение функции отправки электронной почты.
 #email.senderEnabled: false
+# Выключение логотипа в экспортированных файлах.
+#hideLogoOnExport: false
 
 ##### Настройки уведомлений #####
 # Выключение функции отправки уведомлений.
@@ -478,28 +482,35 @@ backup.defaultFileName: <instanceName>
 # Выключение процессных таймеров
 #bpms.timersEnabled: false
 
-##### Настройка использования Docker #####
-# Включение использования в среде Docker
-#isContainerEnvironment: true
-
 ##### Настройка обработчика сервис-запросов #####
 # Включение функции обработчика сервис-запросов
-#requestProcessor.enabled: true
+requestProcessor.enabled: true
 # Список обработчиков сервис-запросов. 
 # Если не указан, включает все доступные на узле  запросы
 # (conversation, useractivity, notification, architect)
 #requestProcessor.services:
 #  - apiPrefix: conversation
 #  - enabled: true
-
-##### Настройка отображения количества строк таблицы на одной странице #####
+# Настройка отображения количества строк таблицы на одной странице
 # Задайте варианты, которые будут отображаться
 # в меню выбора количества строк таблицы.
 #queryPageResultRange: [ 50, 500, 5000, 1000000000 ]
+# Максимально время (в секундах) на выполнение запроса таблицы.
+#datasetQueryTimeout: 30
+# Максимальное время (в секундах) запроса суммарного кол-ва элементов таблицы.
+#datasetQueryTotalTimeout: 1
 
-#################### Настройка аккаунтов ####################
-# Вкл./выкл. для всех пользователей возможность добавления замещений для собственного аккаунта 
+##### Настройка аккаунтов #####
+# Включение/выключение для всех пользователей возможности добавления замещений для собственного аккаунта.
 #account.selfSubstitutionsEnabled: true
+
+##### Настройка загружаемых документов #####
+# Выключение валидации содержимого загружаемых документов
+#documents.formatMatchContent: false
+
+##### Настройка криптографии #####
+# Включение/выключение функции криптографии
+#useGostAlgorithms: true
 ```
 <!--instanceYML-end-->
 
@@ -527,7 +538,7 @@ backup.defaultFileName: <instanceName>
 # Имя экземпляра ПО
 cluster.name: <instanceName>
 # Имя узла экземпляра
-# nodeName:
+#nodeName:
 # Включение/выключение конфигурации журналирования экземпляра (true | false)
 log.enabled: true
 # Путь к файлу конфигурации журналирования экземпляра
@@ -540,50 +551,64 @@ mq.group: <instanceName>
 mq.name: <instanceName>
 # Идентификатор узла очереди сообщений
 mq.node: <instanceName>
-# Тип механизма SASL. (None | Plain | ScramSha256 | ScramSha512)
-mq.sasl.mechanism: None
-# Имя пользователя, используемое для подключения посредством SASL
-#mq.sasl.username:
-# Пароль для аутентификации, используемый для подключения посредством SASL
-#mq.sasl.password:
 # Протокол безопасности очереди сообщений. (Plaintext | Ssl | SaslPlaintext | SaslSsl)
-mq.securityProtocol: Plaintext
+#mq.securityProtocol: Plaintext
 # Путь к файлу корневого сертификата брокера сообщений
 #mq.ssl.caLocation:
 # Выключение идентификации адреса брокера сообщений
 #mq.ssl.endpointIdentificationEnabled: false
+# Имя пользователя, используемое для подключения при помощи SASL
+#mq.sasl.username:
+# Пароль для аутентификации, используемый для подключения при помощи SASL
+#mq.sasl.password:
+# Тип механизма SASL. (None | Plain | ScramSha256 | ScramSha512)
+#mq.sasl.mechanism:
+# Параметр ReplicationFactor для создаваемого топика
+#mq.replicationFactor: 3
+# Параметр NumPartitions для создаваемого топика
+#mq.numPartitions: 16
+# Таймаут для запроса метаданных (мс)
+#mq.metadataTimeout: 3000
+# Таймаут для запроса метаданных (мс)
+#mq.deliveryTimeout: 10000
+# Тип сжатия данных в топиках
+#mq.compressionType: lz4
+# Таймаут на обработку сообщения (должен быть больше таймаута сессии указанного в параметрах брокера, мс)
+#mq.maxPollInterval: 300000
 # Порт для входящих соединений
 #listen.port:
 # Протокол входящих соединений (None, Http1, Http2, Http1AndHttp2)
 listen.protocol: Http1AndHttp2
-# Путь к сокету apigateway
+# Путь к сокету apigateway (указан в конфигурационном файле Nginx)
 listen.socketPath: /var/www/<instanceName>/App_Data/apigateway.socket
 # Включение/выключение файлового хранилища  (true | false)
-fileStorage.enabled: true
+fileStorage.enabled: false
 # Тип файлового хранилища (Platform — встроенное | Custom — особая DLL-библиотека )
-fileStorage.type: Platform
-# IP-адрес сервера для загрузки файлов
-fileStorage.attachmentServerUri: http://local.host.ip.address/
+#fileStorage.type: Platform
+# Адрес сервера для загрузки файлов
+#fileStorage.attachmentServerUri: http://<service URL>
 # Путь к загружаемым файлам
-fileStorage.uploadAttachment.path: /api/Attachment/Upload
-# Путь к скачанным файлам
-fileStorage.downloadAttachment.path: /api/Attachment/GetReferenceContent/{0}
-# Путь к удалённым файлам
-fileStorage.removeAttachment.path: /api/Attachment/Remove/{0}
+#fileStorage.uploadAttachment.path: /api/Attachment/Upload
 # HTTP-метод отправки файлов в хранилище. (GET | POST | PUT | DELETE)
 #fileStorage.uploadAttachment.method: POST
+# Путь загрузки файлов из хранилища
+#fileStorage.downloadAttachment.path: /api/Attachment/GetReferenceContent/{0}
 # HTTP-метод загрузки файлов из хранилища. (GET | POST | PUT | DELETE)
 #fileStorage.downloadAttachment.method: GET
+# Путь удаления файлов из хранилища
+#fileStorage.removeAttachment.path: /api/Attachment/Remove/{0}
 # HTTP-метод удаления файлов из хранилища. (GET | POST | PUT | DELETE)
 #fileStorage.removeAttachment.method: DELETE
 # Вкл./выкл. страницы для мониторинга подключений (true | false)
 statusPage.enabled: true
 # Префиксы служб API
 services:
-- apiPrefix: conversation
-- apiPrefix: useractivity
-- apiPrefix: notification
-- apiPrefix: architect
+  - apiPrefix: conversation
+  - apiPrefix: useractivity
+  - apiPrefix: notification
+  - apiPrefix: architect
+  - apiPrefix: subscription
+  - className: Comindware.ApiGateway.Services.SubscriptionHub
 ```
 <!--apigatewayYML-end-->
 
@@ -610,32 +635,50 @@ services:
 ``` yaml
 # Имя экземпляра ПО
 clusterName: <instanceName>
-# Имя папки загрузчика экземпляра ПО
-loaderFolder: <instanceName>
-# Язык сервера (en-US | ru-RU )
+# Уникальный идентификатор сервиса AdapterHost.
+serviceId: Comindware.AdapterHost.<instanceName>
+# Папка загрузчика экземпляра ПО.
+loaderFolder: ./bin/Debug/net8.0/LoadData
+# Путь к файлам журналирования экземпляра ПО
+log.folder: ../../Web/Logs
+# Язык приложения по умолчанию.
 serverLanguage: ru-RU
+# Имена адаптеров которые необходимо исключить
+ignoredAdapters: [""]
+# Имена путей передачи данных которые необходимо исключить
+ignoredProcedures: [""]
+
+##### Настройка очереди сообщений #####
 # Адрес и порт брокера сообщений {{ apacheKafkaVariants }}
 mq.server: <kafkaBrokerIp>:<kafkaBrokerPort>
-# Префикс имени очередей сообщений
-mq.name: <instanceName>
 # Идентификатор группы очереди сообщений
-mq.group: <instanceName>
+#mq.group: <instanceName>
 # Идентификатор узла очереди сообщений
-mq.node: <instanceName>
-# Имя пользователя, используемое для подключения посредством SASL
-mq.sasl.username:
-# Пароль для аутентификации, используемый для подключения посредством SASL
-mq.sasl.password:
-# Тип механизма SASL (None | Plain | ScramSha256 | ScramSha512)
-mq.sasl.mechanism: None
-# Путь к файлу корневого сертификата брокера сообщений
-mq.ssl.caLocation:
-# Выключение/включение идентификации адреса брокера сообщений
-mq.ssl.endpointIdentificationEnabled: true
+#mq.node: <instanceName>_Exclusive
+# Префикс имени очередей сообщений
+#mq.name:
 # Протокол безопасности очереди сообщений. (Plaintext | Ssl | SaslPlaintext | SaslSsl)
 mq.securityProtocol: Plaintext
-# Путь к файлам журналирования экземпляра ПО
-log.folder: /var/log/comindware/<instanceName>/Logs/
+
+##### Настройки SSL-подключения очереди сообщений #####
+# Путь к файлу корневого сертификата брокера сообщений
+#mq.ssl.caLocation:
+# Выключение/включение идентификации адреса брокера сообщений
+#mq.ssl.endpointIdentificationEnabled: false
+
+##### Настройка SASL-подключения очереди сообщений #####
+# Имя пользователя, используемое для подключения посредством SASL
+#mq.sasl.username:
+# Пароль для аутентификации, используемый для подключения посредством SASL
+#mq.sasl.password:
+# Тип механизма SASL. (None | Plain | ScramSha256 | ScramSha512)
+#mq.sasl.mechanism: None
+# Путь к внутренним адаптерам
+internalAdaptersDir: ..\..\Adapters\InternalAdapters
+
+##### Настройка входящих TCP-соединений #####
+# Порт для входящих соединений
+#listen.port: 5000
 ```
 <!--adapterhostYML-end-->
 

@@ -2,7 +2,7 @@
 title: 'Резервное копирование. Настройка, запуск и просмотр журнала сеансов'
 kbId: 5566
 url: 'https://kb.comindware.ru/article.php?id=5566'
-updated: '2026-06-01 13:42:29'
+updated: '2026-08-10 17:50:33'
 ---
 
 # Резервное копирование. Настройка, запуск и просмотр журнала сеансов
@@ -82,7 +82,7 @@ updated: '2026-06-01 13:42:29'
 
    ```
    mkdir -p /var/backups/comindware/<instanceName>
-   chmod 777 /var/backups/comindware/<instanceName>
+   chmod 700 /var/backups/comindware/<instanceName>
    chown -R www-data:www-data /var/backups/comindware/<instanceName>
    ```
 
@@ -90,7 +90,7 @@ updated: '2026-06-01 13:42:29'
 
    ```
    mkdir -p /var/backups/comindware/<instanceName>
-   chmod 777 /var/backups/comindware/<instanceName>
+   chmod 700 /var/backups/comindware/<instanceName>
    chown -R nginx:nginx /var/backups/comindware/<instanceName>
    ```
 
@@ -98,7 +98,7 @@ updated: '2026-06-01 13:42:29'
 
    ```
    mkdir -p /var/backups/comindware/<instanceName>
-   chmod 777 /var/backups/comindware/<instanceName>
+   chmod 700 /var/backups/comindware/<instanceName>
    chown -R _nginx:_nginx /var/backups/comindware/<instanceName>
    ```
 
@@ -255,7 +255,7 @@ updated: '2026-06-01 13:42:29'
 4. Предоставьте доступ OpenSearch (Elasticsearch) к репозиторию резервных копий:
 
    ```
-   chmod -R 777 /var/backups/opensearch
+   chmod -R 700 /var/backups/opensearch
    chown -R opensearch:opensearch /var/backups/opensearch
    ```
 5. Перезапустите службу OpenSearch (Elasticsearch):

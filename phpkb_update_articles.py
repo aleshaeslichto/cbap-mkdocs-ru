@@ -92,7 +92,7 @@ def updateArticle(article_id, yes=False):
     
     c = CONNECTION.cursor() #(buffered=True)
     c.execute(f"""
-            SELECT article_content, article_title, article_keywords, unlisted
+            SELECT article_title, article_keywords, unlisted
             FROM phpkb_articles WHERE article_id={article_id};
             """)
     
@@ -102,9 +102,9 @@ def updateArticle(article_id, yes=False):
         print(f'Article {article_id} not found in the PHPKB database')
         return False
     
-    article_title = result[1]
-    article_keywords = result[2]
-    article_unlisted_db = 0 if result[3] is None else int(result[3])
+    article_title = result[0]
+    article_keywords = result[1]
+    article_unlisted_db = 0 if result[2] is None else int(result[2])
     content_result = getArticleContentById(article_id)
     
     if content_result is None:

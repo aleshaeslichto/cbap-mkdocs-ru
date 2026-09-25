@@ -2,7 +2,7 @@
 title: 'Elasticsearch. Развёртывание без сертификатов подлинности'
 kbId: 5459
 url: 'https://kb.comindware.ru/article.php?id=5459'
-updated: '2025-12-03 10:40:03'
+updated: '2026-08-10 17:51:33'
 ---
 
 # Elasticsearch. Развёртывание без сертификатов подлинности
@@ -108,7 +108,7 @@ updated: '2025-12-03 10:40:03'
 
    ```
    sudo chown elasticsearch:elasticsearch --recursive /var/elasticsearch/
-   sudo chmod  764 --recursive /var/elasticsearch/
+   sudo chmod 764 --recursive /var/elasticsearch/
    ```
 3. Создайте папку для хранения резервной копии `yml`-файла конфигурации Elasticsearch:
 

@@ -2,7 +2,7 @@
 title: 'Обновление версии экземпляра ПО с его остановкой'
 kbId: 5556
 url: 'https://kb.comindware.ru/article.php?id=5556'
-updated: '2026-06-01 13:42:48'
+updated: '2026-08-10 17:51:35'
 ---
 
 # Обновление версии экземпляра ПО с его остановкой
@@ -422,7 +422,7 @@ updated: '2026-06-01 13:42:48'
 
    ```
    cd /var/lib/comindware/<instanceName>/
-   chmod -R 777 Database/
+   chmod -R 700 Database/
    ```
 
    **Astra Linux, Debian, DEB-дистрибутивы**

@@ -2,7 +2,7 @@
 title: 'Методы System Core API'
 kbId: 5331
 url: 'https://kb.comindware.ru/article.php?id=5331'
-updated: '2026-06-20 17:33:08'
+updated: '2026-07-20 15:41:08'
 ---
 
 # Методы System Core API
@@ -1524,12 +1524,6 @@ _![Интерфейс Swagger для System Core API](https://kb.comindware.ru/a
 | **Описание** | Получает стрим для шаблона экспорта. |
 | **Параметры** | Идентификатор шаблона экспорта. |
 | **Ответ** | Стрим. |
-
-| POST | /TeamNetwork/ObjectAppExportService/InitAspose |
-| --- | --- |
-| **Описание** | Настраивает разметку. |
-| **Параметры** | - |
-| **Ответ** | Статус. |
 
 | POST | /TeamNetwork/ObjectAppExportService/ExecuteWordExportTemplate |
 | --- | --- |

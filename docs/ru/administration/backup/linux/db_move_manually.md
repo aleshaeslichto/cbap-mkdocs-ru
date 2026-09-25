@@ -207,7 +207,7 @@ hide: tags
 
     ``` sh
     cd /var/www/
-    chmod -R 777 cmw-db/
+    chmod -R 700 cmw-db/
     ```
 
     **Astra Linux, Debian, DEB-дистрибутивы**

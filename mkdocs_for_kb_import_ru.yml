@@ -38,6 +38,7 @@ extra:
 
 exclude_docs: |
   **/AGENTS.md
+  administration/infrastructure/performance.md
 
 hooks:
   - kb_html_cleanup_hook.py

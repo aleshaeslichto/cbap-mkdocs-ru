@@ -1814,6 +1814,12 @@ git switch platform_v6
 git pull origin platform_v6
 ```
 
+### Советы
+
+- **Сброс незакоммиченных изменений:** `git restore <file>` — один файл, `git restore <dir>/` — вся папка рекурсивно.
+- **`git push -u origin HEAD`:** ключ `-u` (`--set-upstream`) привязывает текущую ветку к удалённой. После этого достаточно `git push` без аргументов.
+- **Glob-паттерны в PowerShell:** для `git restore` и `git add` экранируйте звёздочки кавычками (`'for_kb_import_ru/**/*.html'`). `**` — рекурсивно (любая глубина), `*` — только текущая папка.
+
 ### Отправка (*push*) в team-remote (если настроен)
 
 ```bash

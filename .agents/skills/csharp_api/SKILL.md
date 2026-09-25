@@ -43,7 +43,7 @@ using Comindware.TeamNetwork.Api.Data;
 
 public class Script
 {
-    public static UserCommandResult Main(UserCommandContext userCommandContext, Comindware.Entities entities)
+    public static UserCommandResult Main(UserCommandContext userCommandContext)
     {
         var objectId = userCommandContext.ObjectIds.FirstOrDefault();
         
@@ -89,7 +89,7 @@ using Comindware.Data.Entity;
 
 class Script
 {
-    public static void Main(Comindware.Process.Api.Data.ScriptContext context, Comindware.Entities entities)
+    public static void Main(Comindware.Process.Api.Data.ScriptContext context)
     {
         var businessObjectId = context.BusinessObjectId;
         var processId = context.ProcessID;
@@ -107,7 +107,7 @@ class Script
 ```csharp
 public class Script
 {
-    public static string Main(string ObjectID, [Comindware.Entities entities])
+    public static string Main(string ObjectID)
     {
         // Return string, int, decimal, dateTime, bool, TimeSpan or IEnumerable<string>
     }
@@ -245,6 +245,6 @@ Api.TeamNetwork.ObjectService.EditWithAlias("Template", context.BusinessObjectId
 
 | Context | Signature | Use when |
 |---------|-----------|----------|
-| **Process task** | `void Main(ScriptContext, Entities)` | Unattended data import/sync, scheduled automation, background processing |
-| **Button** | `UserCommandResult Main(UserCommandContext, Entities)` | User-initiated action on a form or table — needs UI feedback, navigation, or data refresh |
-| **Scenario** | `string Main(string ObjectID, [Entities])` | Expression-like calculation, returning a single value to an attribute |
+| **Process task** | `void Main(ScriptContext)` | Unattended data import/sync, scheduled automation, background processing |
+| **Button** | `UserCommandResult Main(UserCommandContext)` | User-initiated action on a form or table — needs UI feedback, navigation, or data refresh |
+| **Scenario** | `string Main(string ObjectID)` | Expression-like calculation, returning a single value to an attribute |

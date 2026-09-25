@@ -69,7 +69,6 @@ nav:
       - administration/backup/index.md
       - administration/backup/configure.md
       - administration/infrastructure/system_service_management.md
-      - administration/infrastructure/performance.md
       - administration/infrastructure/logging_configuration.md
       - administration/infrastructure/global_configuration.md
       - administration/infrastructure/adapters.md
@@ -488,6 +487,7 @@ exclude_docs: |
   administration/connections_communication_routes/email_connections/process_email_configure_include.md
   administration/connections_communication_routes/authentication/google_connection.md
   administration/connections_communication_routes/system_connections/aws_pinpoint_connection.md
+  administration/infrastructure/performance.md
   devops_wiki/**
   developer_guide/api/**
   developer_guide/n3/n3_tutorial.md

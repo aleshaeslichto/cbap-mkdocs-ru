@@ -73,7 +73,6 @@ nav:
       - administration/infrastructure/logs.md
       - administration/infrastructure/licensing.md
       - administration/infrastructure/system_service_management.md
-      - administration/infrastructure/performance.md
       - administration/infrastructure/logging_configuration.md
       - administration/infrastructure/global_configuration.md
       - administration/infrastructure/adapters.md
@@ -172,6 +171,7 @@ exclude_docs: |
   !administration/deploy/linux/img/deploy_guide_admin_account_create.png
   !administration/deploy/linux/img/deploy_guide_elasticsearch_initialize.png
   administration/architecture/functions.md
+  administration/infrastructure/performance.md
   administration/account_administration/accounts_dc_sync/linux/ad_authentication_configure.md
   administration/account_administration/accounts_dc_sync/linux/sso_authentication_configure.md
   administration/connections_communication_routes/system_connections/aws_pinpoint_connection.md

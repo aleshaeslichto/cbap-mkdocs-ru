@@ -129,7 +129,6 @@ nav:
         - administration/infrastructure/logs.md
         - administration/infrastructure/licensing.md
         - administration/infrastructure/system_service_management.md
-        - administration/infrastructure/performance.md
         - administration/infrastructure/logging_configuration.md
         - administration/infrastructure/global_configuration.md
         - administration/infrastructure/adapters.md
@@ -602,6 +601,7 @@ exclude_docs: |
   guides_toc.md
   administration/connections_communication_routes/system_connections/elasticsearch_connection.md
   administration/connections_communication_routes/system_connections/notifications/system_notifications.md
+  administration/infrastructure/performance.md
   administration/deploy/toc_deploy_auxiliary_software.md
   administration/deploy/commissioning_recommendations.md
   developer_guide/n3/n3_examples.md

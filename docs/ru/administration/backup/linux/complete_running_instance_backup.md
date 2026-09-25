@@ -105,7 +105,7 @@ hide: tags
 {: #assignRights}
 
     ``` sh
-    chmod -R 777 apache-ignite/
+    chmod -R 700 apache-ignite/
     ```
 
 9. Смените владельца директории `apache-ignite`:
@@ -145,7 +145,7 @@ hide: tags
 12. Присвойте директории `backups` права на чтение-запись `rwxrwxrwx`:
 
     ``` sh
-    chmod -R 777 backups/
+    chmod -R 700 backups/
     ```
 
 13. Смените владельца директории `backups`:

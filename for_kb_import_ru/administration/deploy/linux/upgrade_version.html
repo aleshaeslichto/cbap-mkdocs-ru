@@ -297,6 +297,11 @@
 <li>Настройка соответствующих служб выполняется в файле конфигурации экземпляра ПО <code>&lt;instanceName&gt;.yml</code>.</li>
 </ul>
 </div>
+<div class="notice notice-info">
+<p class="admonition-title">Восстановление резервной копии на другом экземпляре ПО</p>
+<p>При создании экземпляра ПО база данных привязывается к имени, которое указано в директиве <code>db.name</code> (имя базы данных) файла конфигурации <code>&lt;instanceName&gt;.yml</code>.</p>
+<p>Если вы восстанавливаете резервную копию на новом экземпляре ПО, необходимо убедиться, что в YML-файле конфигурации задано такое же значение <code>db.name</code>, как у экземпляра ПО, на котором была создана резервная копия.</p>
+</div>
 </li>
 <li>
 <p>Откройте для редактирования три службы <strong>каждого</strong> из установленных экземпляров ПО (<code>&lt;instanceName&gt;</code>):</p>
@@ -412,7 +417,7 @@
 </li>
 <li>
 <p>Перейдите в папку с экземпляром ПО и поменяйте права для скопированной директории с базой данных:</p>
-<div class="highlight"><code><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/var/lib/comindware/&lt;instanceName&gt;/</code> <br/><code>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">777</span><span class="w"> </span>Database/<span class="w"> </span></code> <br/></pre></code></div>
+<div class="highlight"><code><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/var/lib/comindware/&lt;instanceName&gt;/</code> <br/><code>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">700</span><span class="w"> </span>Database/<span class="w"> </span></code> <br/></pre></code></div>
 <p><strong>Astra Linux, Debian, DEB-дистрибутивы</strong></p>
 <div class="highlight"><code><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>Database/</code> <br/></pre></code></div>
 <p><strong>РЕД ОС, RPM-дистрибутивы</strong></p>

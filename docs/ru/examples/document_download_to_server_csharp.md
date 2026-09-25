@@ -35,7 +35,7 @@ class Script {
     public static UserCommandResult Main(UserCommandContext userCommandContext) {
         try {
             //<ServerDownloadPath> — путь для скачивания файлов на сервере
-            var path = @ "<ServerDownloadPath>";
+            var path = @"<ServerDownloadPath>";
             //DocumentAttributeSystemName — системное имя атрибута типа «Документ»
             var data = Api.TeamNetwork.ObjectService.GetPropertyValues(new string[] {
                 userCommandContext.ObjectIds[0]

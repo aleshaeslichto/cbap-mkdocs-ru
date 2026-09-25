@@ -131,10 +131,10 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link mkdocs_imported_link" href="#logging_engine_trigger_log">
+<a class="md-nav__link mkdocs_imported_link" href="#logging_engine_performance_log">
 <span class="md-ellipsis">
       
-        Журнал сценариев
+        Журнал транзакций
       
     </span>
 </a>
@@ -479,31 +479,32 @@
 <figure class="screenshot_with_caption">
 <p><img alt="Пример журнала резервного копирования" src="/platform/v6.0/administration/deploy/img/logging_engine_backup_log.png"/></p><figcaption class="caption">Пример журнала резервного копирования</figcaption>
 </figure>
-<h4 class="pageBreakBefore" id="logging_engine_trigger_log">Журнал сценариев</h4>
-<p>Журнал сценариев содержит сведения о ходе выполнения сценариев.</p>
-<p>Стандартное имя файла журнала сценариев: <code>trigger_ГГГГ-ММ-ДД.log</code></p>
-<p>Журнал сценариев содержит следующие сведения:</p>
+<h4 class="pageBreakBefore" id="logging_engine_performance_log">Журнал транзакций</h4>
+<p>Журнал транзакций содержит сведения о ходе выполнения транзакций.</p>
+<p>Стандартное имя файла журнала транзакций: <code>performance_ГГГГ-ММ-ДД.log</code></p>
+<p>Журнал транзакций содержит следующие сведения:</p>
 <ul>
-<li>дата события;</li>
+<li>идентификатор запроса для корреляции;</li>
 <li>время события;</li>
-<li>тип сообщения;</li>
-<li>инициатор вызова сценария;</li>
-<li>идентификатор сценария;</li>
-<li>тип события, запустившего сценарий;</li>
-<li>идентификатор шаблона записи;</li>
-<li>идентификатор записи;</li>
 <li>длительность выполнения;</li>
-<li>сведения о действиях, исполненных в ходе сценария:<ul>
-<li>идентификатор действия сценария;</li>
-<li>тип действия;</li>
-<li>идентификатор шаблона записи;</li>
 <li>идентификатор записи;</li>
-<li>длительность выполнения.</li>
+<li>идентификатор корневого запроса цепочки;</li>
+<li>идентификатор родителя в иерархии вызовов;</li>
+<li>количество повторений операции;</li>
+<li>имя кластера в многоузловой конфигурации;</li>
+<li>имя узла в кластере;</li>
+<li>сведения о действиях, исполненных в ходе транзакции:<ul>
+<li>тип записи;</li>
+<li>компонент-источник;</li>
+<li>URL вызова, имя метода, действие;</li>
+<li>идентификатор сессии пользователя;</li>
+<li>имя аккаунта, инициировавшего событие;</li>
+<li>идентификатор запроса для корреляции.</li>
 </ul>
 </li>
 </ul>
 <figure class="screenshot_with_caption">
-<p><img alt="Пример журнала сценариев" src="/platform/v6.0/administration/deploy/img/logging_engine_trigger_log.png"/></p><figcaption class="caption">Пример журнала сценариев</figcaption>
+<p><img alt="Пример журнала транзакций" src="/platform/v6.0/administration/deploy/img/logging_engine_performance_log.png"/></p><figcaption class="caption">Пример журнала транзакций</figcaption>
 </figure>
 <h4 class="pageBreakBefore" id="logging_engine_system_log">Системный журнал</h4>
 <p>Системный журнал содержит данные о событиях системного уровня в экземпляре ПО.</p>

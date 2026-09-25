@@ -115,7 +115,6 @@ nav:
       - administration/infrastructure/logs.md
       - administration/infrastructure/licensing.md
       - administration/infrastructure/system_service_management.md
-      - administration/infrastructure/performance.md
       - administration/infrastructure/logging_configuration.md
       - administration/infrastructure/global_configuration.md
       - administration/infrastructure/adapters.md
@@ -200,6 +199,7 @@ exclude_docs: |
   administration/deploy/linux/db_migrate_4.2_to_4.7.md
   product_description.md
   administration/architecture/functions.md
+  administration/infrastructure/performance.md
   administration/connections_communication_routes/email_connections/process_email_configure_include.md
   administration/connections_communication_routes/rest_odata_connections/1c_integrations.md
   administration/connections_communication_routes/rest_odata_connections/send_http_example.md

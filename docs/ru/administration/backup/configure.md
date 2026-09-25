@@ -81,7 +81,7 @@ hide: tags
 
     ``` sh
     mkdir -p /var/backups/comindware/<instanceName>
-    chmod 777 /var/backups/comindware/<instanceName>
+    chmod 700 /var/backups/comindware/<instanceName>
     chown -R www-data:www-data /var/backups/comindware/<instanceName>
     ```
 
@@ -89,7 +89,7 @@ hide: tags
 
     ``` sh
     mkdir -p /var/backups/comindware/<instanceName>
-    chmod 777 /var/backups/comindware/<instanceName>
+    chmod 700 /var/backups/comindware/<instanceName>
     chown -R nginx:nginx /var/backups/comindware/<instanceName>
     ```
 
@@ -97,7 +97,7 @@ hide: tags
 
     ``` sh
     mkdir -p /var/backups/comindware/<instanceName>
-    chmod 777 /var/backups/comindware/<instanceName>
+    chmod 700 /var/backups/comindware/<instanceName>
     chown -R _nginx:_nginx /var/backups/comindware/<instanceName>
     ```
 
@@ -261,7 +261,7 @@ hide: tags
 4. Предоставьте доступ {{ openSearchVariants }} к репозиторию резервных копий:
 
     ``` sh
-    chmod -R 777 /var/backups/opensearch
+    chmod -R 700 /var/backups/opensearch
     chown -R opensearch:opensearch /var/backups/opensearch
     ```
 

@@ -392,6 +392,7 @@
 <li><code>Filter</code> — не указывайте <strong>значение</strong> (объявление объекта). Установите флажок рядом c этой переменной и создайте дочерние переменные:<ul>
 <li><code>Name</code> — в поле «<strong>Значение</strong>» введите <strong>формулу</strong>: <code>"countryCode"</code> — имя столбца из таблицы <code>cities</code> во внешней БД.</li>
 <li><code>Value</code> — в поле «<strong>Значение</strong>» выберите <strong>атрибут</strong> <em>«Код страны»</em>.</li>
+<li><code>Operator</code> — определяет, с каким оператором сравнения будет происходить запрос (&gt;, &lt;, &gt;=, &lt;=).</li>
 <li>Из этих переменных в последующем действии «<strong>Отправить сообщение</strong>» в SQL-запросе будет сформировано предложение <code>WHERE Name=Value</code> (например, <code>WHERE countryCode='RUS'</code>).</li>
 </ul>
 </li>

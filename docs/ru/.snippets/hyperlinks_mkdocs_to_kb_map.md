@@ -233,6 +233,24 @@
 
 [wikipedia_ntriples]: https://ru.wikipedia.org/wiki/N-Triples
 
+[release_notes_4.7.4822]: {{ kbArticleURLPrefix }}2611
+
+[release_notes_4.7.2721]: {{ kbArticleURLPrefix }}2633
+
+[release_notes_4.7.2902]: {{ kbArticleURLPrefix }}2639
+
+[release_notes_4.7.3023]: {{ kbArticleURLPrefix }}2642
+
+[release_notes_4.7.3084]: {{ kbArticleURLPrefix }}2649
+
+[release_notes_5.0]: {{ kbArticleURLPrefix }}5073
+
+[release_notes_5.0.13334]: {{ kbArticleURLPrefix }}5094
+
+[release_notes_5.0.20251010]: {{ kbArticleURLPrefix }}5137
+
+[release_notes_5.0.20251231]: {{ kbArticleURLPrefix }}5145
+
 [vulnerability_policy]: {{ kbArticleURLPrefix }}5427
 
 [vulnerability_digest]: {{ kbArticleURLPrefix }}5434
@@ -469,24 +487,6 @@
 [table_open_error]: {{ kbArticleURLPrefix }}5168
 
 [view_calculate_attribute_history]: {{ kbArticleURLPrefix }}5173
-
-[release_notes_4.7.4822]: {{ kbArticleURLPrefix }}2611
-
-[release_notes_4.7.2721]: {{ kbArticleURLPrefix }}2633
-
-[release_notes_4.7.2902]: {{ kbArticleURLPrefix }}2639
-
-[release_notes_4.7.3023]: {{ kbArticleURLPrefix }}2642
-
-[release_notes_4.7.3084]: {{ kbArticleURLPrefix }}2649
-
-[release_notes_5.0]: {{ kbArticleURLPrefix }}5073
-
-[release_notes_5.0.13334]: {{ kbArticleURLPrefix }}5094
-
-[release_notes_5.0.20251010]: {{ kbArticleURLPrefix }}5137
-
-[release_notes_5.0.20251231]: {{ kbArticleURLPrefix }}5145
 
 [release_notes_6.0]: {{ kbArticleURLPrefix }}5741
 

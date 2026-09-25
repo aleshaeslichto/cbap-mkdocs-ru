@@ -100,7 +100,7 @@
 <article class="md-content__inner md-typeset">
 <h2 id="elasticsearch_cluster_deploy_no_certificates_intro">Введение</h2>
 <p>Для работы ПО <strong>Comindware Platform</strong> требуется сервер Elasticsearch версии не ниже 8.10.2.</p>
-<p>Здесь представлены требования к конфигурации компьютеров, инструкции по установке Elasticsearch, и настройке узлов кластера Elasticsearch без проверки сертификатов подлинности на виртуальных машинах с ОС Linux на базе Debian.</p>
+<p>Здесь представлены требования к конфигурации компьютеров, инструкции по установке Elasticsearch, и настройке узлов кластера Elasticsearch без проверки сертификатов подлинности на виртуальных машинах с ОС Linux на базе Debian. Перед переходом в продуктивную среду необходимо <a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5453">настроить SSL-сертификаты</a> и включить аутентификацию.</p>
 <p>Только после запуска службы Elasticsearch можно приступать к развертыванию <strong>Comindware Platform</strong>, указав путь к серверу Elasticsearch.</p>
 <div class="notice notice-warning">
 <p class="admonition-title">Настройка OpenSearch</p>
@@ -159,7 +159,7 @@
 </li>
 <li>
 <p>Измените владельца папки и права доступа к ней:</p>
-<div class="highlight"><code><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>elasticsearch:elasticsearch<span class="w"> </span>--recursive<span class="w"> </span>/var/elasticsearch/</code> <br/><code>sudo<span class="w"> </span>chmod<span class="w">  </span><span class="m">764</span><span class="w"> </span>--recursive<span class="w"> </span>/var/elasticsearch/</code> <br/></pre></code></div>
+<div class="highlight"><code><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>elasticsearch:elasticsearch<span class="w"> </span>--recursive<span class="w"> </span>/var/elasticsearch/</code> <br/><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">764</span><span class="w"> </span>--recursive<span class="w"> </span>/var/elasticsearch/</code> <br/></pre></code></div>
 </li>
 <li>
 <p>Создайте папку для хранения резервной копии <code>yml</code>-файла конфигурации Elasticsearch:</p>

@@ -197,16 +197,22 @@ hide: tags
     ```
     {% include-markdown ".snippets/pdfEndOfBlockHack.md" %}
 
-7. Проверьте конфигурацию NGINX:
+6. Проверьте конфигурацию NGINX:
 
     ```
     nginx -t
     ```
 
+7. Перезапустите службу NGINX для применения изменений:
+
+    ```
+    nginx -s reload
+    ```
+
 8. Перезапустите **{{ productName }}**:
 
     ```
-    systemctl restart opensearch nginx comindware<instanceName>
+    systemctl restart comindware<instanceName> apigateway<instanceName>
     ```
 
 ## Инициализация {{ productName }} для входа через Keycloak {: #openid_connection_initialize .pageBreakBefore }

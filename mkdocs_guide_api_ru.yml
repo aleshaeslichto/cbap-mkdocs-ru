@@ -15,20 +15,19 @@ extra:
 
 nav:
   - Общие сведения:
-    - index.md
-    - general/glossary.md
-    - Обзор версий:
-      - general/changelog/changelog.md
-      - general/changelog/release_notes_6.0.md
-  - Использование API Comindware Platform: 
-    - developer_guide/api/index.md
-    - developer_guide/api/api_solution.md
-    - developer_guide/api/api_system_core.md
-    - developer_guide/api/api_web.md
-
+      - index.md
+      - general/glossary.md
+      - Обзор версий:
+          - general/changelog/changelog.md
+          - general/changelog/release_notes_6.0.md
+  - Использование API Comindware Platform:
+      - developer_guide/api/index.md
+      - developer_guide/api/api_solution.md
+      - developer_guide/api/api_system_core.md
+      - developer_guide/api/api_web.md
 
 exclude_docs: |
-  
+
   administration/**
   devops_wiki/**
   developer_guide/csharp/**
@@ -43,6 +42,7 @@ exclude_docs: |
   general/**
   !general/glossary.md
   !general/changelog/changelog.md
+  !general/changelog/release_notes_6.0.md
   examples/**
   using_the_system/**
   product_description.md
@@ -54,3 +54,4 @@ exclude_docs: |
   troubleshooting/**
   tutorials/tutorial_n3/lesson_1.md
   tutorials/tutorial_n3/lesson_2.md
+  root/**

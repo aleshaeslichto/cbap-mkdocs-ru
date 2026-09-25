@@ -446,8 +446,9 @@ string, number, dateTime, TimeSpan, bool
 - RestSharp.RestRequest — формирование HTTP- запросов
 - RestSharp.Authenticators.HttpBasicAuthenticator — аутентификация HTTP-запросов
 - NLog.Logger — подсистема журналирования
+<!--
 - Aspose.BarCode — обработка штрихкодов
 - Aspose.Cells — обработка файлов в формате Excel
 - Aspose.Words — обработка файлов в формате Word
-
+-->
 {% include-markdown ".snippets/hyperlinks_mkdocs_to_kb_map.md" %}

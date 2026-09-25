@@ -18,7 +18,7 @@ hide: tags
 
 Для работы ПО **{{ productName }}** требуется сервер Elasticsearch версии не ниже 8.10.2.
 
-Здесь представлены требования к конфигурации компьютеров, инструкции по установке Elasticsearch, и настройке узлов кластера Elasticsearch без проверки сертификатов подлинности на виртуальных машинах с ОС Linux на базе Debian.
+Здесь представлены требования к конфигурации компьютеров, инструкции по установке Elasticsearch, и настройке узлов кластера Elasticsearch без проверки сертификатов подлинности на виртуальных машинах с ОС Linux на базе Debian. Перед переходом в продуктивную среду необходимо [настроить SSL-сертификаты][elasticsearch_ssl_certificate_configure] и включить аутентификацию.
 
 Только после запуска службы Elasticsearch можно приступать к развертыванию **{{ productName }}**, указав путь к серверу Elasticsearch.
 
@@ -119,7 +119,7 @@ hide: tags
 
     ``` sh
     sudo chown elasticsearch:elasticsearch --recursive /var/elasticsearch/
-    sudo chmod  764 --recursive /var/elasticsearch/
+    sudo chmod 764 --recursive /var/elasticsearch/
     ```
 
 3. Создайте папку для хранения резервной копии `yml`-файла конфигурации Elasticsearch:

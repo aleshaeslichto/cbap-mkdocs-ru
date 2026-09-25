@@ -2,7 +2,7 @@
 title: 'Elasticsearch. Настройка SSL-сертификатов'
 kbId: 5453
 url: 'https://kb.comindware.ru/article.php?id=5453'
-updated: '2025-12-03 10:40:08'
+updated: '2026-08-18 17:11:12'
 ---
 
 # Elasticsearch. Настройка SSL-сертификатов

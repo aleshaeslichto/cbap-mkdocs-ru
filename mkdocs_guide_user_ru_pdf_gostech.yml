@@ -70,7 +70,6 @@ nav:
       - administration/backup/index.md
       - administration/backup/configure.md
       - administration/infrastructure/system_service_management.md
-      - administration/infrastructure/performance.md
       - administration/infrastructure/logging_configuration.md
       - administration/infrastructure/global_configuration.md
       - administration/infrastructure/authentication_keys.md
@@ -299,6 +298,7 @@ exclude_docs: |
   administration/account_administration/accounts_dc_sync/windows/sso_authentication_configure_windows.md
   administration/connections_communication_routes/email_connections/process_email_configure_include.md
   administration/infrastructure/adapters.md
+  administration/infrastructure/performance.md
   devops_wiki/**
   developer_guide/**
   tutorials/**

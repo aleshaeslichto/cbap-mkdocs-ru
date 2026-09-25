@@ -1,4 +1,4 @@
-<h1>Elasticsearch. Развёртывание без сертификатов подлинности</h1><div class="md-body" data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="comindware" dir="ltr" kb-id="4612" kb-tags="Elasticsearch,Linux,OpenSearch,администрирование,настройка,развёртывание,установка" kb-title="Elasticsearch. Развёртывание без сертификатов подлинности">
+<h1>Elasticsearch. Развёртывание без сертификатов подлинности</h1><div class="md-body" data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="comindware" dir="ltr" kb-id="5459" kb-tags="Elasticsearch,Linux,OpenSearch,администрирование,настройка,развёртывание,установка" kb-title="Elasticsearch. Развёртывание без сертификатов подлинности">
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
@@ -11,14 +11,18 @@
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_cluster_deploy_no_certificates_intro">
 <span class="md-ellipsis">
-      Введение
+      
+        Введение
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_cluster_deploy_no_certificates_machines_software">
 <span class="md-ellipsis">
-      Подготовка физических и виртуальных машин, пакетов программ
+      
+        Подготовка физических и виртуальных машин, пакетов программ
+      
     </span>
 </a>
 <nav aria-label="Подготовка физических и виртуальных машин, пакетов программ" class="md-nav">
@@ -26,7 +30,9 @@
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_cluster_deploy_no_certificates_server_config_example">
 <span class="md-ellipsis">
-      Пример конфигурации серверов
+      
+        Пример конфигурации серверов
+      
     </span>
 </a>
 </li>
@@ -36,42 +42,54 @@
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_cluster_deploy_no_certificates_install_deb">
 <span class="md-ellipsis">
-      Установка Elasticsearch из deb-пакета
+      
+        Установка Elasticsearch из deb-пакета
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_cluster_deploy_no_certificates_configuration">
 <span class="md-ellipsis">
-      Конфигурация Elasticsearch
+      
+        Конфигурация Elasticsearch
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_cluster_deploy_no_certificates_startup">
 <span class="md-ellipsis">
-      Запуск Elasticsearch
+      
+        Запуск Elasticsearch
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_cluster_deploy_no_certificates_cluster_health">
 <span class="md-ellipsis">
-      Проверка состояния кластера
+      
+        Проверка состояния кластера
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#elasticsearch_cluster_deploy_no_certificates_config_example">
 <span class="md-ellipsis">
-      Пример yml-файла конфигурации узла Elasticsearch
+      
+        Пример yml-файла конфигурации узла Elasticsearch
+      
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link mkdocs_imported_link" href="#связанные-статьи">
 <span class="md-ellipsis">
-      Связанные статьи
+      
+        Связанные статьи
+      
     </span>
 </a>
 </li>
@@ -141,7 +159,7 @@
 </li>
 <li>
 <p>Измените владельца папки и права доступа к ней:</p>
-<div class="highlight"><code><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>elasticsearch:elasticsearch<span class="w"> </span>--recursive<span class="w"> </span>/var/elasticsearch/</code> <br/><code>sudo<span class="w"> </span>chmod<span class="w">  </span><span class="m">764</span><span class="w"> </span>--recursive<span class="w"> </span>/var/elasticsearch/</code> <br/></pre></code></div>
+<div class="highlight"><code><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>elasticsearch:elasticsearch<span class="w"> </span>--recursive<span class="w"> </span>/var/elasticsearch/</code> <br/><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">764</span><span class="w"> </span>--recursive<span class="w"> </span>/var/elasticsearch/</code> <br/></pre></code></div>
 </li>
 <li>
 <p>Создайте папку для хранения резервной копии <code>yml</code>-файла конфигурации Elasticsearch:</p>
@@ -272,5 +290,5 @@
 </main>
 </div>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": true, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
+document$.subscribe(()=>{ lightbox.reload(); });
 </script></div>

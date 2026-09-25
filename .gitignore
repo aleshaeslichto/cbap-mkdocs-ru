@@ -36,4 +36,6 @@ for_kb_import_ru/tags.json
 .scratch/*
 !.scratch/.gitkeep
 .worktrees/
+dev/
 .cursor/hooks/state/continual-learning.json
+.zcode/

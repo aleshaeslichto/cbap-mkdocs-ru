@@ -5,7 +5,6 @@ nav:
     - logs.md
     - licensing.md
     - system_service_management.md
-    - performance.md
     - logging_configuration.md
     - global_configuration.md
     - adapters.md

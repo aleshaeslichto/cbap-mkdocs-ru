@@ -1540,13 +1540,13 @@ _![Интерфейс Swagger для System Core API](https://kb.comindware.ru/a
 | **Описание** | Получает стрим для шаблона экспорта. |
 | **Параметры** | Идентификатор шаблона экспорта. |
 | **Ответ** | Стрим. |
-
+<!--
 | POST {: .api-method .post } | /TeamNetwork/ObjectAppExportService/InitAspose |
 | --- | --- |
 | **Описание** | Настраивает разметку. |
 | **Параметры** | - |
 | **Ответ** | Статус. |
-
+-->
 | POST {: .api-method .post } | /TeamNetwork/ObjectAppExportService/ExecuteWordExportTemplate |
 | --- | --- |
 | **Описание** | Выгружает запись по шаблону экспорта в Word. |

@@ -70,7 +70,6 @@ nav:
       - administration/infrastructure/logs.md
       - administration/infrastructure/licensing.md
       - administration/infrastructure/system_service_management.md
-      - administration/infrastructure/performance.md
       - administration/infrastructure/logging_configuration.md
       - administration/infrastructure/global_configuration.md
       - administration/infrastructure/authentication_keys.md
@@ -192,6 +191,7 @@ exclude_docs: |
   administration/connections_communication_routes/rest_odata_connections/jpath_example.md      
   administration/connections_communication_routes/rest_odata_connections/http_receive_file.md
   administration/infrastructure/adapters.md
+  administration/infrastructure/performance.md
   product_description.md
   architect/**
   business_apps/application_configure_recommendations.md

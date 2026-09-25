@@ -159,7 +159,7 @@ hide: tags
 9. Настройте права доступа к созданным директориям:
 
     ``` sh
-    chmod -R 777 /share/<instanceName>
+    chmod -R 700 /share/<instanceName>
     chown -R nobody:nogroup /share
     ```
 

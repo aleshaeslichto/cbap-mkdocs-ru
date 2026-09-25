@@ -2,7 +2,7 @@
 title: 'Написание скриптов на языке C#'
 kbId: 5211
 url: 'https://kb.comindware.ru/article.php?id=5211'
-updated: '2026-06-16 19:15:20'
+updated: '2026-07-20 16:12:23'
 ---
 
 # Написание скриптов на языке C#
@@ -437,6 +437,3 @@ string, number, dateTime, TimeSpan, bool
 - RestSharp.RestRequest — формирование HTTP- запросов
 - RestSharp.Authenticators.HttpBasicAuthenticator — аутентификация HTTP-запросов
 - NLog.Logger — подсистема журналирования
-- Aspose.BarCode — обработка штрихкодов
-- Aspose.Cells — обработка файлов в формате Excel
-- Aspose.Words — обработка файлов в формате Word

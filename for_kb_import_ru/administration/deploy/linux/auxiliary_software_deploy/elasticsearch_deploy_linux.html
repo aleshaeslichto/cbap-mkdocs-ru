@@ -60,14 +60,14 @@
 <article class="md-content__inner md-typeset">
 <h2 id="введение">Введение</h2>
 <p>Для работы <strong>Comindware Platform</strong> требуется сервер Elasticsearch. См. <a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5429">системные требования</a>.</p>
-<p>Здесь представлены инструкции по установке Elasticsearch с помощью дистрибутива <strong>Comindware Platform</strong> в простейшей базовой конфигурации.</p>
+<p>Здесь представлены инструкции по установке Elasticsearch с помощью дистрибутива <strong>Comindware Platform</strong> в простейшей базовой конфигурации. В рамках данной конфигурации использование протоколов TLS/SSL и механизмов аутентификации не предусмотрено. Для развертывания в продуктивной среде требуется выполнить <a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5453">настройку SSL-сертификатов</a> и включить аутентификацию.</p>
 <p>Инструкции по установке Elasticsearch в иных конфигурациях:</p>
 <ul>
 <li><em><a class="mkdocs_imported_link" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html">Официальный сайт Elasticsearch</a></em> (английский язык)</li>
 <li><em><a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5459">Установка и настройка Elasticsearch без сертификатов подлинности</a></em></li>
 </ul>
 <p>С помощью дистрибутива <strong>Comindware Platform</strong> можно развернуть сервер Elasticsearch вместе с экземпляром ПО или на отдельном сервере. Для этого укажите ключ <code>-e</code> при запуске скрипта <code>prerequisites_install.sh</code>. См. <em>«<a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5558">Установка, запуск, инициализация и остановка ПО Comindware Platform</a>»</em>.</p>
-<p>Установленная таким образом сервер Elasticsearch имеет базовую конфигурацию: без аутентификации и с одним узлом. Он доступна по адресу <code>localhost:9200</code>.</p>
+<p>Установленный таким образом сервер Elasticsearch имеет базовую конфигурацию: без аутентификации и с одним узлом. Он доступен по адресу <code>localhost:9200</code>.</p>
 <p>Здесь представлены требования к техническому обеспечению и инструкции по развёртыванию сервера Elasticsearch в ОС Linux, а также приведён пример типового файла конфигурации. Инструкции представлены для версии Elasticsearch 8.10.2, для других версий содержимое файлов конфигурации и порядок установки могут быть иными.</p>
 <div class="notice notice-info">
 <p class="admonition-title">Служебный пользователь сервера журналирования транзакций OpenSearch (Elasticsearch)</p>
@@ -136,6 +136,7 @@
 <ul>
 <li><a class="mkdocs_imported_link" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html">Официальный сайт Elasticsearch</a> (английский язык)</li>
 <li><a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5459">Установка и настройка Elasticsearch без сертификатов подлинности</a></li>
+<li><a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5453">Elasticsearch. Настройка SSL-сертификатов</a></li>
 <li><a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5465">OpenSearch (Elasticsearch). Настройка разрешений</a></li>
 <li><a class="mkdocs_imported_link" href="https://kb.comindware.ru/article.php?id=5558">Установка, запуск, инициализация и остановка ПО Comindware Platform</a></li>
 </ul>

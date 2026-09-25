@@ -2,7 +2,7 @@
 title: 'Elasticsearch. Установка в базовой конфигурации'
 kbId: 5457
 url: 'https://kb.comindware.ru/article.php?id=5457'
-updated: '2026-06-01 13:42:41'
+updated: '2026-08-18 17:11:09'
 ---
 
 # Elasticsearch. Установка в базовой конфигурации
@@ -11,7 +11,7 @@ updated: '2026-06-01 13:42:41'
 
 Для работы **Comindware Platform** требуется сервер Elasticsearch. См. [системные требования](https://kb.comindware.ru/article.php?id=5429).
 
-Здесь представлены инструкции по установке Elasticsearch с помощью дистрибутива **Comindware Platform** в простейшей базовой конфигурации.
+Здесь представлены инструкции по установке Elasticsearch с помощью дистрибутива **Comindware Platform** в простейшей базовой конфигурации. В рамках данной конфигурации использование протоколов TLS/SSL и механизмов аутентификации не предусмотрено. Для развертывания в продуктивной среде требуется выполнить [настройку SSL-сертификатов](https://kb.comindware.ru/article.php?id=5453) и включить аутентификацию.
 
 Инструкции по установке Elasticsearch в иных конфигурациях:
 
@@ -20,7 +20,7 @@ updated: '2026-06-01 13:42:41'
 
 С помощью дистрибутива **Comindware Platform** можно развернуть сервер Elasticsearch вместе с экземпляром ПО или на отдельном сервере. Для этого укажите ключ `-e` при запуске скрипта `prerequisites_install.sh`. См. *«[Установка, запуск, инициализация и остановка ПО Comindware Platform](https://kb.comindware.ru/article.php?id=5558)»*.
 
-Установленная таким образом сервер Elasticsearch имеет базовую конфигурацию: без аутентификации и с одним узлом. Он доступна по адресу `localhost:9200`.
+Установленный таким образом сервер Elasticsearch имеет базовую конфигурацию: без аутентификации и с одним узлом. Он доступен по адресу `localhost:9200`.
 
 Здесь представлены требования к техническому обеспечению и инструкции по развёртыванию сервера Elasticsearch в ОС Linux, а также приведён пример типового файла конфигурации. Инструкции представлены для версии Elasticsearch 8.10.2, для других версий содержимое файлов конфигурации и порядок установки могут быть иными.
 
@@ -155,5 +155,6 @@ xpack.security.transport.ssl:
 
 - [Официальный сайт Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html) (английский язык)
 - [Установка и настройка Elasticsearch без сертификатов подлинности](https://kb.comindware.ru/article.php?id=5459)
+- [Elasticsearch. Настройка SSL-сертификатов](https://kb.comindware.ru/article.php?id=5453)
 - [OpenSearch (Elasticsearch). Настройка разрешений](https://kb.comindware.ru/article.php?id=5465)
 - [Установка, запуск, инициализация и остановка ПО Comindware Platform](https://kb.comindware.ru/article.php?id=5558)

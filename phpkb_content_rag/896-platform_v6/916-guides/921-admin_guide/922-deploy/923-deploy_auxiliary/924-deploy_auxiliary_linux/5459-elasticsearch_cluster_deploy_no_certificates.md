@@ -2,7 +2,7 @@
 title: 'Elasticsearch. Развёртывание без сертификатов подлинности'
 kbId: 5459
 url: 'https://kb.comindware.ru/article.php?id=5459'
-updated: '2025-12-03 10:40:03'
+updated: '2026-08-18 17:11:11'
 ---
 
 # Elasticsearch. Развёртывание без сертификатов подлинности
@@ -11,7 +11,7 @@ updated: '2025-12-03 10:40:03'
 
 Для работы ПО **Comindware Platform** требуется сервер Elasticsearch версии не ниже 8.10.2.
 
-Здесь представлены требования к конфигурации компьютеров, инструкции по установке Elasticsearch, и настройке узлов кластера Elasticsearch без проверки сертификатов подлинности на виртуальных машинах с ОС Linux на базе Debian.
+Здесь представлены требования к конфигурации компьютеров, инструкции по установке Elasticsearch, и настройке узлов кластера Elasticsearch без проверки сертификатов подлинности на виртуальных машинах с ОС Linux на базе Debian. Перед переходом в продуктивную среду необходимо [настроить SSL-сертификаты](https://kb.comindware.ru/article.php?id=5453) и включить аутентификацию.
 
 Только после запуска службы Elasticsearch можно приступать к развертыванию **Comindware Platform**, указав путь к серверу Elasticsearch.
 
@@ -108,7 +108,7 @@ updated: '2025-12-03 10:40:03'
 
    ```
    sudo chown elasticsearch:elasticsearch --recursive /var/elasticsearch/
-   sudo chmod  764 --recursive /var/elasticsearch/
+   sudo chmod 764 --recursive /var/elasticsearch/
    ```
 3. Создайте папку для хранения резервной копии `yml`-файла конфигурации Elasticsearch:
 
